@@ -77,3 +77,30 @@ const cursor = document.querySelector('.cursor');
   });
 
   applyPortfolioFilter();
+
+
+/* Mobile navigation */
+(() => {
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const nav = document.getElementById('mobileNav');
+  const close = document.querySelector('.mobile-nav-close');
+  if (!toggle || !nav) return;
+
+  const setOpen = (open) => {
+    nav.classList.toggle('open', open);
+    document.body.classList.toggle('mobile-menu-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    nav.setAttribute('aria-hidden', String(!open));
+  };
+
+  toggle.addEventListener('click', () => setOpen(true));
+  close?.addEventListener('click', () => setOpen(false));
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+})();
