@@ -104,3 +104,38 @@ const cursor = document.querySelector('.cursor');
     if (event.key === 'Escape') setOpen(false);
   });
 })();
+
+/* Mobile hamburger -> menu options popup */
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const menu = document.getElementById('mobileNav');
+  const close = document.querySelector('.mobile-nav-close');
+
+  if (!toggle || !menu) return;
+
+  const setMenu = (open) => {
+    menu.classList.toggle('open', open);
+    toggle.classList.toggle('active', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+    document.body.classList.toggle('mobile-menu-open', open);
+  };
+
+  toggle.addEventListener('click', () => {
+    setMenu(!menu.classList.contains('open'));
+  });
+
+  close?.addEventListener('click', () => setMenu(false));
+
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+  menu.addEventListener('click', (event) => {
+    if (event.target === menu) setMenu(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenu(false);
+  });
+});
