@@ -14,14 +14,18 @@
   <header class="topbar"><div class="wrap"><nav>
     <a class="brand" href="#top"><span class="brand-mark"><img src="assets/ifs-logo.png" alt="IFS logo"></span><span>IFS / CREATIVE STUDIO</span></a>
     <div class="navlinks"><a href="#work">Work</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+      onclick="var m=document.getElementById('mobileNav');m.classList.add('open');this.classList.add('active');this.setAttribute('aria-expanded','true');document.body.classList.add('mobile-menu-open');">
+      <span></span><span></span><span></span>
+    </button>
     <a class="cta" href="#contact">Start a project</a>
   </nav></div>
     <div class="mobile-nav" id="mobileNav" aria-hidden="true">
       <div class="mobile-nav-inner">
         <div class="mobile-nav-top">
           <span>IFS / CREATIVE STUDIO</span>
-          <button class="mobile-nav-close" type="button" aria-label="Close menu">×</button>
+          <button class="mobile-nav-close" type="button" aria-label="Close menu"
+          onclick="var m=document.getElementById('mobileNav');m.classList.remove('open');document.querySelector('.mobile-menu-toggle').classList.remove('active');document.querySelector('.mobile-menu-toggle').setAttribute('aria-expanded','false');document.body.classList.remove('mobile-menu-open');">×</button>
         </div>
         <a href="#work">Work <small>01</small></a>
         <a href="#services">Services <small>02</small></a>

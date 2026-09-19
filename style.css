@@ -2531,3 +2531,19 @@ footer.sitefoot {
     letter-spacing:.18em;
   }
 }
+
+/* Final mobile menu safety layer */
+@media (max-width:768px){
+  .mobile-menu-toggle{
+    position:relative !important;
+    z-index:10001 !important;
+    pointer-events:auto !important;
+    touch-action:manipulation !important;
+  }
+  .mobile-nav{
+    z-index:10000 !important;
+  }
+  .mobile-nav-inner{
+    z-index:10001 !important;
+  }
+}
